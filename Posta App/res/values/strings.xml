@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Posta App</string>
+    <string name="action_settings">Settings</string>
+    <string name="lblUser">Username</string>
+    <string name="lblPass">Password</string>
+    <string name="btnLog">Login</string>
+    <string name="btnReg">Register</string>
+    <string name="lblFName">First Name</string>
+    <string name="lblSName">Surname</string>
+    <string name="lblTel">Telephone</string>
+    <string name="lblPostalCode">Postal code</string>
+    <string name="lblEmail">Email</string>
+    <string name="btnNext">Next</string>
+
+</resources>

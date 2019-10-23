@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+E:\Posta workspace\.metadata\.plugins\org.eclipse.jdt.core
+4116797572.index
+2081056334.index
+878009836.index
+173127133.index

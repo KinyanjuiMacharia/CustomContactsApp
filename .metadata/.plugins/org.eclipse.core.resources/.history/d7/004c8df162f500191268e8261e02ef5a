@@ -1,0 +1,62 @@
+package com.AceDevelopers.customcontactsapp;
+
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.util.Log;
+import android.view.Menu;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		getContacts();
+	}
+	
+	public void getContacts(){
+		
+		/*
+		 * This refers to the content uri, meaning:
+		 * we want to access the authorities from our content provider
+		 */
+		Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+		
+		//What do you want to access? Name and Phone number
+		String [] projection = {
+				ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+				ContactsContract.CommonDataKinds.Phone.NUMBER
+		};
+		String selection = null;
+		String [] selectionArgs = null;
+		String sortOrder = null;
+		
+		ContentResolver cr = getContentResolver();
+		
+		Cursor c = cr.query(uri, projection, selection, selectionArgs, sortOrder);
+		
+		while(c.moveToNext()){
+			
+			String name = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+			String number = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+			
+			//Just for good measure, print out the name and contact info
+			
+			Log.i("@AceDevelopers", "Name: " + name + "Number: " + number);
+			
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}
